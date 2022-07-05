@@ -1,0 +1,100 @@
+@import 'antd/dist/antd.css';
+
+body {
+  background: #f0f0f1;
+}
+
+.asl-spin {
+  margin: 20px 0;
+  padding: 16% 50px;
+  height: 100%;
+  text-align: center;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.plugin-name {
+  font-size: 16px;
+  color: #6e6e6e;
+  margin-top: -1px;
+  padding: 0 20px;
+  float: left;
+  border: 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.layout {
+  background: #f0f0;
+  margin-left: -20px;
+}
+
+.ant-badge-count{
+  right: -4px;
+}
+
+.ant-input-affix-wrapper {
+  padding: 0 11px;
+}
+
+.ant-layout-header {
+  background: #ffffff;
+  padding: 0;
+}
+
+.ant-layout-content {
+  padding: 20px;
+}
+
+.asl-polling-welcome {
+  max-width: 500px;
+  margin: 45px auto 0;
+  padding: 30px 20px;
+  background: #fff;
+  text-align: center;
+
+  h2 {
+    font-size: 30px;
+  }
+}
+
+
+.ant-message {
+  margin-top: 20px;
+}
+
+.flex-head {
+  display: flex;
+  //justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ml-2 {
+  margin-left: 20px;
+}
+
+.dev_description {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.empty-height {
+  margin-top: 25vh;
+}
