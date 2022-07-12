@@ -32,19 +32,12 @@ const App = ( {id, skin, showDescription, showHead} ) => {
         }
     }
 
-    function compareNumeric( a, b ) {
-        if (a > b) return 1;
-        if (a == b) return 0;
-        if (a < b) return -1;
-    }
-
-
     useEffect( () => {
         axios.get( `${asl_rest_uri}asl-polls/v1/polls/${id}`, {} ).then( ( response ) => {
-            if (response.data.pluses.length > 1) {
+            if (response.data.pluses.length >= 1) {
                 response.data.pluses.sort( ( a, b ) => parseFloat( b.rating ) - parseFloat( a.rating ) );
             }
-            if (response.data.minuses.length > 1) {
+            if (response.data.minuses.length >= 1) {
                 response.data.minuses.sort( ( a, b ) => parseFloat( b.rating ) - parseFloat( a.rating ) );
             }
             setPoll( response.data )

@@ -13,7 +13,8 @@
  * @package           Asl_Polling
  *
  * @wordpress-plugin
- * Plugin Name:       WP Polling by Alex Lundin
+ * Plugin Name:       Polling by Alex Lundin
+ * Description:       Plugin for creating surveys about a single product, product, service
  * Version:           1.0.0
  * Author:            Alex Lundin
  * Author URI:        https://vk.com/aslundin
@@ -32,7 +33,6 @@ define( 'ASL_POLLING_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'ASL_POLLING_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ASL_POLLING_VERSION', '1.0.0' );
 define( 'ASL_POLLING_ASSETT_VERSION', '1.0.0' );
-
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-asl-polling-activator.php

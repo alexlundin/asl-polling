@@ -14,6 +14,7 @@ mix.js('src/poll.js', 'prod/js/poll.js')
     .eslint({
         fix: true,
         extensions: ['js']
-    });
+    })
+    .sourceMaps();
 
 mix.disableNotifications();

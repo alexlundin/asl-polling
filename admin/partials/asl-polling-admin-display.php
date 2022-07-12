@@ -11,6 +11,7 @@
  * @package    Asl_Polling
  * @subpackage Asl_Polling/admin/partials
  */
+
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->

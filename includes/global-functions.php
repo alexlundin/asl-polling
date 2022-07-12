@@ -60,8 +60,8 @@ if (!function_exists('asl_polling_get_data_provider')) {
 function get_item( $id ) {
 	global $wpdb;
 	$dbName      = $wpdb->prefix . asl_polling_db_table_name();
-	$headPost    = $wpdb->get_results( $wpdb->prepare( "SELECT `post_title`, `post_content` FROM $wpdb->posts WHERE id = '%d';", $id ) );
-	$contentPost = $wpdb->get_results( "SELECT `id`, `moderate`, `rating`, `value`, `settings` FROM $dbName WHERE `item_id` = $id;" );
+	$headPost    = $wpdb->get_results( $wpdb->prepare( "SELECT `post_title`, `post_content` FROM $wpdb->posts WHERE id = %d;", $id ) );
+	$contentPost = $wpdb->get_results( $wpdb->prepare("SELECT `id`, `moderate`, `rating`, `value`, `settings` FROM $dbName WHERE `item_id` = %d;", $id ));
 
 	$response = [
 		'id'          => $id,

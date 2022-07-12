@@ -203,9 +203,9 @@ class Asl_Polling_Public {
 	public function update_rating_poll() {
 		global $wpdb;
 		$dbName = $wpdb->prefix . asl_polling_db_table_name();
-		$rating = json_decode( stripslashes( $_POST['rating'] ), true );
-		$id     = json_decode( stripslashes( $_POST['idPoll'] ), true );
-		$idItem = json_decode( stripslashes( $_POST['id'] ), true );
+		$rating = json_decode( sanitize_text_field( stripslashes( $_POST['rating'] ), true ) );
+		$id     = json_decode( sanitize_text_field( stripslashes( $_POST['idPoll'] ), true ) );
+		$idItem = json_decode( sanitize_text_field( stripslashes( $_POST['id'] ), true ) );
 
 		$wpdb->update( $dbName, [ 'rating' => $rating ], [ 'id' => $id ] );
 		wp_send_json( get_item( $idItem ) );
@@ -215,10 +215,9 @@ class Asl_Polling_Public {
 	public function add_item_poll() {
 		global $wpdb;
 		$dbName  = $wpdb->prefix . asl_polling_db_table_name();
-		$id      = $_POST['id'];
-		$setting = $_POST['value'];
-//		$text    = filter_var( $_POST['text'], FILTER_SANITIZE_SPECIAL_CHARS );
-		$text = $_POST['text'];
+		$id      = sanitize_text_field( $_POST['id'] );
+		$setting = sanitize_text_field( $_POST['value'] );
+		$text    = sanitize_text_field( $_POST['text'] );
 
 
 		$wpdb->insert( $dbName, [

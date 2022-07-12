@@ -127,24 +127,18 @@ class Asl_Polling_Admin {
 			__( 'Polls', 'asl-polling' ),
 			$capability,
 			'admin.php?page=asl_polling#/home',
-			'',
-			'asl_polling_all_polls'
 		);
 
 		$submenu['asl_polling']['import'] = array(
 			__( 'Import', 'asl-polling' ),
 			$capability,
 			'admin.php?page=asl_polling#/tools',
-			'',
-			'asl_polling_import_menu'
 		);
 
 		$submenu['asl_polling']['tools'] = array(
 			__( 'Tools', 'asl-polling' ),
 			$capability,
 			'admin.php?page=asl_polling#/tools',
-			'',
-			'asl_polling_tools_menu'
 		);
 
 		aslPollsAdminPrintStyles();
@@ -153,8 +147,6 @@ class Asl_Polling_Admin {
 			__( 'Help', 'asl-polling' ),
 			$capability,
 			'admin.php?page=asl_polling#/help',
-			'',
-			'asl_polling_help'
 		);
 	}
 
@@ -170,8 +162,6 @@ class Asl_Polling_Admin {
 	public function enqueue_styles() {
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/prod/css/admin.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name . '-icon', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name . '-roboto', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap', array(), $this->version, 'all' );
 	}
 
 	/**
@@ -180,23 +170,10 @@ class Asl_Polling_Admin {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		if ( function_exists( 'wp_enqueue_editor' ) ) {
-			add_filter( 'user_can_richedit', function ( $status ) {
-				return true;
-			} );
-			wp_enqueue_editor();
-			wp_enqueue_script( 'thickbox' );
-		}
-		if ( function_exists( 'wp_enqueue_media' ) ) {
-			wp_enqueue_media();
-		}
-
 		wp_enqueue_script( $this->plugin_name . '-manifest', plugin_dir_url( __FILE__ ) . 'assets/prod/js/manifest.js', array(), $this->version, true );
 		wp_enqueue_script( $this->plugin_name . '-vendor', plugin_dir_url( __FILE__ ) . 'assets/prod/js/vendor.js', array( $this->plugin_name . '-manifest' ), $this->version, true );
 		wp_enqueue_script( $this->plugin_name . '-app', plugin_dir_url( __FILE__ ) . 'assets/prod/js/admin.js', array( $this->plugin_name . '-vendor' ), $this->version, true );
 		wp_set_script_translations( $this->plugin_name . '-app', 'asl-polling', plugin_dir_path(__FILE__) . '/languages' );
-		$currentUser = wp_get_current_user();
 
 		if ( current_user_can( 'manage_options' ) ) {
 			$isAdmin = 'yes';
